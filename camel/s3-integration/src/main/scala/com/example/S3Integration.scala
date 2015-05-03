@@ -74,6 +74,3 @@ object CamelContext {
 
 }
 
-object Main extends App {
-  CamelContext.start()
-}

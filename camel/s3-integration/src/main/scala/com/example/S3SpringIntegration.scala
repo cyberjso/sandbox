@@ -53,7 +53,7 @@ class FileRouter extends RouteBuilder {
 
 }
 
-object MayMain extends App {
+object Main extends App {
   val context = new Main
   context.setConfigClassesString(classOf[MyApplicationContext].getName)
   context.run(args)
