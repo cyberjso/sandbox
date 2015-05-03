@@ -6,15 +6,18 @@ import org.apache.camel.builder.RouteBuilder
 
 
 class MyRouteBuilder extends RouteBuilder {
+  var sourceJsonIn = "aws-s3://json-in?amazonS3Client=#client&maxMessagesPerPoll=15&delay=3000&region=sa-east-1"
+  var targetJsonOut = "aws-s3://json-out?amazonS3Client=#client&region=sa-east-1"
+  var targetJsonError = "aws-s3://json-error?amazonS3Client=#client&region=sa-east-1"
 
   override def configure(): Unit ={
-    from("aws-s3://json-in?amazonS3Client=#client&maxMessagesPerPoll=15&delay=3000&region=sa-east-1").
+    from(sourceJsonIn).
       to("bean:fileProcessor").
       choice().
         when(header("status").isEqualTo("ok")).
-          to("aws-s3://json-out?amazonS3Client=#client&region=sa-east-1").
+          to(targetJsonOut).to("mock:success").
         otherwise().
-          to("aws-s3://json-error?amazonS3Client=#client&region=sa-east-1")
+          to(targetJsonError).to("mock:error")
   }
 
 }
@@ -27,7 +30,7 @@ class FileProcessor extends Processor {
   override def process(msg: Exchange): Unit ={
     val content = msg.getIn.getBody(classOf[String])
     // Do Whatever you need with the content
-    logger.info(content)
+    logger.info("processing message")
     Messenger.send(message = msg, status = Some("ok"))
   }
 
