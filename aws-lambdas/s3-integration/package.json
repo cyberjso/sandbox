@@ -1,0 +1,16 @@
+{
+  "name": "s3-integration",
+  "version": "1.0.0",
+  "description": "S3 integration example",
+  "main": "integrator.js",
+  "scripts": {
+    "test": "node integrator.js"
+  },
+    "dependencies": {
+    "xml2js": ">=0.4.9",
+    "aws-sdk": ">=2.1.32",
+    "async" : ">=1.0.0"
+  },
+  "author": "Jackson Oliveira <cyber.jso@gmail.com>",
+  "license": "ISC"
+}

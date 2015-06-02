@@ -61,3 +61,5 @@ camel/.idea/scala_compiler.xml
 camel/s3-integration/activator
 camel/s3-integration/.idea/scala_compiler.xml
 *.xml
+
+aws-lambdas/s3-integration/node_modules
