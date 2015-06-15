@@ -1,0 +1,18 @@
+- name: Installing zookeper
+  apt:
+    name=zookeeper 
+    state=present
+- name: Downloading cloudera  repositories package
+  get_url:
+    url=http://archive.cloudera.com/cdh4/one-click-install/precise/amd64/cdh4-repository_1.0_all.deb
+    dest=/home/vagrant/cdh4-repository_1.0_all.deb
+    mode=0444
+- name: Installing cloudera repository
+  apt:
+    deb="/home/vagrant/cdh4-repository_1.0_all.deb"
+- name: Update APT package cache
+  action: apt update_cache=yes
+- name: Installing zookeeper server
+  apt:
+    name=zookeeper-server
+    state=present

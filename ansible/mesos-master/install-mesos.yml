@@ -3,59 +3,6 @@
   sudo: true
   remote_user: vagrant
   tasks:
-    - name: Check whether java package is already installed
-      command: dpkg-query -W oracle-java7-installer  
-      register: java_check_db
-      failed_when: java_check_db.rc > 1
-      changed_when: java_check_db.rc == 1
-    - name: Add Java repository to sources
-      action: apt_repository repo='ppa:webupd8team/java' 
-      when: java_check_db.rc == 1
-    - name: Autoaccept license for Java
-      action: shell echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
-      when: java_check_db.rc == 1
-    - name: Update APT package cache
-      action: apt update_cache=yes
-      when: java_check_db.rc == 1
-    - name: Install Java 7
-      action: apt pkg=oracle-java7-installer state=latest install_recommends=yes
-      when: java_check_db.rc == 1
-    - name: Set Java 7 Env
-      action: apt pkg=oracle-java7-set-default state=latest install_recommends=yes
-      when: java_check_db.rc == 1
-    - name: Checking whether mesos package is already installed
-      command: dpkg-query -W mesos
-      register: mesos_check_db
-      failed_when: mesos_check_db.rc > 1
-      changed_when: mesos_check_db.rc == 1
-    - name: Downloading mesos package
-      get_url:
-        url=http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
-        dest=/home/vagrant/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
-        mode=0444
-      remote_user: vagrant
-      when: mesos_check_db.rc == 1
-    - name: Installing mesos package
-      apt:
-        deb="/home/vagrant/mesos_0.22.0-1.0.ubuntu1404_amd64.deb"
-      when: mesos_check_db.rc == 1
-    - name: Installing zookeper
-      apt:
-        name=zookeeper 
-        state=present
-
-    - name: Downloading cloudera  repositories package
-      get_url:
-        url=http://archive.cloudera.com/cdh4/one-click-install/precise/amd64/cdh4-repository_1.0_all.deb
-        dest=/home/vagrant/cdh4-repository_1.0_all.deb
-        mode=0444
-    - name: Installing cloudera repository
-      apt:
-        deb="/home/vagrant/cdh4-repository_1.0_all.deb"
-    - name: Update APT package cache
-      action: apt update_cache=yes
-
-    - name: Installing zookeeper server
-      apt:
-        name=zookeeper-server
-        state=present
+    - include: install-java-package.yml
+    - include: install-mesos-package.yml
+    - include: install-zookeeper-package.yml
