@@ -22,6 +22,9 @@
 - name: Update APT package cache
   action: apt update_cache=yes
   when: zookeeper_check_db.rc == 1 or zookeeper_server_check_db.rc == 1
+- name: Resolving issue with ubuntu. It contains default packages that conflicts with cloudera ones. It does not let zookeeper server be installed properly. Check this out  blog.cloudera.com/blog/2014/11/guidelines-for-installing-cdh-packages-on-unsupported-operating-systems/
+  copy: src=cloudera.pref dest=/etc/apt/preferences.d/cloudera.pref owner=root group=root mode=0644
+  when: zookeeper_check_db.rc == 1 or zookeeper_server_check_db.rc == 1
 - name: Installing zookeper
   apt:
     name=zookeeper 
