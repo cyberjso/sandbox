@@ -1,18 +1,34 @@
-- name: Installing zookeper
-  apt:
-    name=zookeeper 
-    state=present
+#This needs to be done: http://blog.cloudera.com/blog/2014/11/guidelines-for-installing-cdh-packages-on-unsupported-operating-systems/
+- name: Check whether java zookeeper is already installed
+  command: dpkg-query -W zookeeper
+  register: zookeeper_check_db
+  failed_when: zookeeper_check_db.rc > 1
+  changed_when: zookeeper_check_db.rc == 1
+- name: Check whether zookeeper-server is already installed
+  command: dpkg-query -W zookeeper-server
+  register: zookeeper_server_check_db
+  failed_when: zookeeper_server_check_db.rc > 1
+  changed_when: zookeeper_server_check_db.rc == 1
 - name: Downloading cloudera  repositories package
   get_url:
     url=http://archive.cloudera.com/cdh4/one-click-install/precise/amd64/cdh4-repository_1.0_all.deb
     dest=/home/vagrant/cdh4-repository_1.0_all.deb
     mode=0444
+  when: zookeeper_check_db.rc == 1 or zookeeper_server_check_db.rc == 1
 - name: Installing cloudera repository
   apt:
     deb="/home/vagrant/cdh4-repository_1.0_all.deb"
+  when: zookeeper_check_db.rc == 1 or zookeeper_server_check_db.rc == 1
 - name: Update APT package cache
   action: apt update_cache=yes
+  when: zookeeper_check_db.rc == 1 or zookeeper_server_check_db.rc == 1
+- name: Installing zookeper
+  apt:
+    name=zookeeper 
+    state=present
+  when: zookeeper_check_db.rc == 1
 - name: Installing zookeeper server
   apt:
     name=zookeeper-server
     state=present
+  when: zookeeper_server_check_db.rc == 1
