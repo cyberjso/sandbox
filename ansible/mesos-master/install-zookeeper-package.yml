@@ -1,6 +1,4 @@
-- name: Update APT package cache
-  action: apt update_cache=yes
 - name: Installing zookeper
   apt:
-    name=zookeeper 
+    name=zookeeperd 
     state=present
