@@ -23,14 +23,14 @@ exports.handler =  function(event, context) {
 		function sendMessage(result, next) {
 			var message = {
 				MessageBody: JSON.stringify(result),
-				QueueUrl: "[YOUR QUEUE URL. i.e: https://......]"
+				QueueUrl: "https://sqs.us-east-1.amazonaws.com/370819816009/myNewTestQueue"
 			};
 			
 			sqs.sendMessage(message, function(err, data) {
 			   if(err) {
 			      context.fail("Error: " + err);
 			    } else {
-			      context.succeed("Message sent succefully: " + data.MessageId); 
+			      context.succeed("Message sent succefully: " + data.MessageId);
 			    }
 			    context.done();
 			});
