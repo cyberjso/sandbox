@@ -6,12 +6,11 @@
 - name: Downloading mesos package
   get_url:
     url=http://downloads.mesosphere.io/master/ubuntu/14.04/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
-    dest=/home/vagrant/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
+    dest=~/mesos_0.22.0-1.0.ubuntu1404_amd64.deb
     mode=0444
   remote_user: vagrant
   when: mesos_check_db.rc == 1
 - name: Installing mesos package
   apt:
-    deb="/home/vagrant/mesos_0.22.0-1.0.ubuntu1404_amd64.deb"
+    deb="~/mesos_0.22.0-1.0.ubuntu1404_amd64.deb"
   when: mesos_check_db.rc == 1
-
