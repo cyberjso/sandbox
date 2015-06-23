@@ -1,0 +1,24 @@
+---
+profile: my-default-profile
+region: us-east-1
+iam:
+  policy:
+    name: AWSLambdaExecuteRole
+  role:
+    name: lambda_s3_exec_role
+lambda:
+  name: myLambdaFuncId
+  zipfile_name: integrator.zip
+  description: Somethhing that helps describe your lambda function
+  path: src/
+  handler: Integrator.handler
+  runtime: nodejs
+  memory_size: 128
+  timeout: 3
+  mode: event
+  test_data: input.json
+  event_sources:
+    -
+      arn: arn:aws:s3:::jack-bucket-test
+      events:
+        - s3:ObjectCreated:*
