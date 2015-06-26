@@ -1,5 +1,5 @@
 ---
-- hosts: mesos-master-nodes
+- hosts: all
   sudo: true
   remote_user: vagrant
   tasks:
