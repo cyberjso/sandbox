@@ -64,3 +64,6 @@ camel/s3-integration/.idea/scala_compiler.xml
 
 aws-lambdas/s3-integration/src/node_modules
 aws-lambdas/s3-integration/build
+*.zip
+aws-lambdas/s3-integration/.deploy.sh.swp
+*.swo

@@ -1,6 +1,6 @@
 ---
 profile: my-default-profile
-region: us-east-1
+region: us-west-2
 iam:
   policy:
     name: AWSLambdaExecuteRole
@@ -19,6 +19,6 @@ lambda:
   test_data: input.json
   event_sources:
     -
-      arn: arn:aws:s3:::jack-bucket-test
+      arn: arn:aws:s3:::jack-lambda-test-bucket
       events:
         - s3:ObjectCreated:*

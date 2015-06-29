@@ -1,0 +1,37 @@
+{
+    "Records": [
+        {
+            "eventVersion": "2.0",
+            "eventSource": "aws:s3",
+            "awsRegion": "sa-east-1",
+            "eventTime": "2015-06-28T23:24:45.526Z",
+            "eventName": "ObjectCreated:Put",
+            "userIdentity": {
+                "principalId": "AWS:AIDAIFLGHKCPMOGQXC3LE"
+            },
+            "requestParameters": {
+                "sourceIPAddress": "10.170.19.22"
+            },
+            "responseElements": {
+                "x-amz-request-id": "FAB899EBD27EDDAD",
+                "x-amz-id-2": "ns5K57dcR0I0irrPAWXmngUop5ZLXJVxuKCLnnmv9xXGAlnGeXDBTIgCQPZhqIpp"
+            },
+            "s3": {
+                "s3SchemaVersion": "1.0",
+                "configurationId": "processReports",
+                "bucket": {
+                    "name": "poc-event-source-nfe",
+                    "ownerIdentity": {
+                        "principalId": "A3TA03K43U1S5P"
+                    },
+                    "arn": "arn:aws:s3:::poc-event-source-nfe"
+                },
+                "object": {
+                    "key": "0_4_060420151431221503_96603_ch_060420151431221503_712.xml",
+                    "size": 282,
+                    "eTag": "9e36cc3537ee9ee1e3b10fa4e761045b"
+                }
+            }
+        }
+    ]
+}
