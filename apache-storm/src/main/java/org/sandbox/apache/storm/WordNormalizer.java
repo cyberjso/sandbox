@@ -1,3 +1,5 @@
+package org.sandbox.apache.storm;
+
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.IRichBolt;
@@ -19,6 +21,7 @@ public class WordNormalizer implements IRichBolt {
 
     public void execute(Tuple tuple) {
         String sentence = tuple.getString(0);
+        System.out.println(sentence);
         String[] words = sentence.split(" ");
         for (String word : words) {
             if (!word.isEmpty()) {
@@ -31,11 +34,9 @@ public class WordNormalizer implements IRichBolt {
         collector.ack(tuple);
     }
 
-    public void cleanup() {
+    public void cleanup() { }
 
-    }
-
-    public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-        outputFieldsDeclarer.declare(new Fields("word"));
+    public void declareOutputFields(OutputFieldsDeclarer declarer) {
+        declarer.declare(new Fields("word"));
     }
 }

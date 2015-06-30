@@ -1,3 +1,5 @@
+package org.sandbox.apache.storm;
+
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.IRichSpout;
@@ -6,11 +8,8 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class WordReader implements IRichSpout {
@@ -24,53 +23,52 @@ public class WordReader implements IRichSpout {
     }
 
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-        List<String> l =  new ArrayList<String>();
-        l.add("line");
-
-        outputFieldsDeclarer.declare(new Fields(l));
+        outputFieldsDeclarer.declare(new Fields("line"));
     }
 
     public void open(Map conf, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
         context = topologyContext;
         try {
-            fileReader = new FileReader(conf.get("wordFile").toString());
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("Error when reading file "+ conf.get("wordFile"), e );
+            fileReader = new FileReader(conf.get("wordsFile").toString());
+        } catch (Exception e) {
+            throw new RuntimeException("Error when reading file " + conf.get("wordsFile"), e);
         }
+
         collector = spoutOutputCollector;
     }
 
     public void close() {
-
     }
 
     public void nextTuple() {
         if (isCompleted) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
-                System.out.print("WTF!! Unhandled exception");
+                throw new RuntimeException("Error when fetching next tuple " + e.getMessage());
             }
-            String str;
-            BufferedReader reader = new BufferedReader(fileReader);
-            try {
-                while((str = reader.readLine()) != null) {
-                    collector.emit(new Values(str), str);
-                }
-            } catch (IOException e) {
-                throw new RuntimeException("Error when reading tuple", e);
-            } finally {
-                isCompleted = true;
+        }
+
+        String str;
+        BufferedReader reader = new BufferedReader(fileReader);
+        try {
+            while ((str = reader.readLine()) != null) {
+                collector.emit(new Values(str), str);
             }
+        } catch (IOException e) {
+            throw new RuntimeException("Error when reading tuple", e);
+        } finally {
+            isCompleted = true;
         }
 
     }
 
     public void ack(Object o) {
-
+        System.out.println("oK: " + o);
     }
 
     public void fail(Object o) {
         System.out.println("Fail: " + o);
     }
+
 }

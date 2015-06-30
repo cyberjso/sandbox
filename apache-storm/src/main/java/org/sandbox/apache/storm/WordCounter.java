@@ -1,3 +1,5 @@
+package org.sandbox.apache.storm;
+
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
 import backtype.storm.topology.IRichBolt;
@@ -32,14 +34,12 @@ public class WordCounter implements IRichBolt {
     }
 
     public void cleanup() {
-        System.out.println(" -- word counter [" + name + " - " + id + "]" );
+        System.out.println(" *** Final result *** " );
         for (Map.Entry<String, Integer> entry : counters.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+            System.out.println(entry.getKey() + " -- :  -- " + entry.getValue());
         }
     }
 
-    public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
-
-    }
+    public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) { }
 
 }

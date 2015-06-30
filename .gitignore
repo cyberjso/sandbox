@@ -64,3 +64,8 @@ camel/s3-integration/.idea/scala_compiler.xml
 
 aws-lambdas/s3-integration/src/node_modules
 aws-lambdas/s3-integration/build
+apache-storm/apache-storm-sandbox.iml
+*.iml
+*.iml
+apache-storm/apache-storm.iml
+apache-storm/apache-storm.iml
