@@ -1,4 +1,4 @@
-package org.sandbox.apache.storm;
+package org.sandbox.apache.storm.wordcount;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;

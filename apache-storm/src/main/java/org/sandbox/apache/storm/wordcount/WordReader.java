@@ -1,4 +1,4 @@
-package org.sandbox.apache.storm;
+package org.sandbox.apache.storm.wordcount;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
