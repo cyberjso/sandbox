@@ -9,7 +9,6 @@ mvn clean install
 java -jar target\apache-storm-sandbox-1.0-SNAPSHOT-jar-with-dependencies.jar default-input.txt
 
 ## Ouput
- *** Final result ***
 word1 -- :  -- 4
 word0 -- :  -- 1
 word3 -- :  -- 3
