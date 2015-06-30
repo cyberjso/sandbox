@@ -67,3 +67,4 @@ aws-lambdas/s3-integration/build
 *.zip
 aws-lambdas/s3-integration/.deploy.sh.swp
 *.swo
+*.iml
