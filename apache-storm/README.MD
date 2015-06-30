@@ -1,6 +1,6 @@
 # Word Counter
 
-Streams a given text file content to a implementation that using apache-storm counts the occurrences of each word inside.
+Streams a given text file content to a implementation that using apache-storm counts the occurrence of each word inside.
 
 ## Building 
 mvn clean install
