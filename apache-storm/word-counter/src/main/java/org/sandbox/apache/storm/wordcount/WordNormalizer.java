@@ -20,6 +20,7 @@ public class WordNormalizer implements IRichBolt {
     }
 
     public void execute(Tuple tuple) {
+        System.out.println("**** word normalizing **** " + tuple.getString(0));
         String sentence = tuple.getString(0);
         System.out.println(sentence);
         String[] words = sentence.split(" ");
