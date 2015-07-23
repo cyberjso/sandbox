@@ -4,7 +4,7 @@ This is the same problem described that was already solved [here](https://github
 This feature is available on storm since too long. It basically let the consumers connect remotely on the cluster to make calls and then wait until a reply comes back.
 It works like this:
 
-![drpc-workflow](https://github.com/cyberjso/sandbox/tree/apache-storm/apache-storm/drpc-word-counter/drpc-workflow.png)
+![drpc-workflow](https://raw.githubusercontent.com/cyberjso/sandbox/apache-storm/apache-storm/drpc-word-counter/drpc-workflow.png)
 
 On the version , but now is provided by Trident. There are other reasons I'd recommend use Trident definitly. I'm using Trident for this case
 just because the DRPC feature was officially shifted to there. 
