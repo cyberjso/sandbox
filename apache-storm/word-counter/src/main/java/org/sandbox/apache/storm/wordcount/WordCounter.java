@@ -23,6 +23,7 @@ public class WordCounter implements IRichBolt {
     }
 
     public void execute(Tuple tuple) {
+        System.out.println("**** word counting **** " + tuple.getString(0));
         String str = tuple.getString(0);
         if (!counters.containsKey(str)) {
             counters.put(str, 1);
