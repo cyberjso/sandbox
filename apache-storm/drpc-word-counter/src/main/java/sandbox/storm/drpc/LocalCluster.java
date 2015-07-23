@@ -2,11 +2,6 @@ package sandbox.storm.drpc;
 
 import backtype.storm.Config;
 import backtype.storm.LocalDRPC;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
-
-import java.io.IOException;
-import java.util.Map;
 
 public class LocalCluster {
 
@@ -21,19 +16,9 @@ public class LocalCluster {
 
         String result =  localDRPC.execute("word-counter", "now now it goes!");
 
-
-        try {
-            final Map<String,Object> values= new ObjectMapper().readValue(result,new TypeReference<Map<String,Integer>>(){});
-            values.entrySet().stream().map(key -> values.get(key));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-
+        System.out.println("**** Tuples ****" + result);
 
         localDRPC.shutdown();
-
     }
 
 }
