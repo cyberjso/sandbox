@@ -1,9 +1,12 @@
 # Word Counter - DRPC Version
 
-This is the same problem described that was already solved here, but this time using the distributed remote procedure call available on storm.
-This feature is available on storm since too long. It basically lets the consumers connect remotly on the cluster to make calls and then wait until a reply comes back.
+This is the same problem described that was already solved [here](https://github.com/username/repo/blob/branch/docs/more_words.md), but this time using the distributed remote procedure call feature available on storm.
+This feature is available on storm since too long. It basically let the consumers connect remotely on the cluster to make calls and then wait until a reply comes back.
+It works like this:
 
-This feature is officially deprecated, but now is provided by Trident. There are other reasons I'd recommend use Trident definitly. I'm using Trident for this case
+![drpc-workflow](https://github.com/cyberjso/sandbox/tree/apache-storm/apache-storm/drpc-word-counter/drpc-workflow.png)
+
+On the version , but now is provided by Trident. There are other reasons I'd recommend use Trident definitly. I'm using Trident for this case
 just because the DRPC feature was officially shifted to there. 
 
 An outcome of this approach is the implementation simplicity. Trident provides series of functions and utility classes that helps build usefulll stream pipelines. 
