@@ -20,7 +20,6 @@ public class BasisUserBasedRecommender {
 
     public List<Recommendation> recommend(String fileName) {
         try {
-            File file  = new File(this.getClass().getResource(fileName).getFile());
             DataModel datamodel = new FileDataModel(new File(this.getClass().getResource(fileName).getFile()));
             UserSimilarity user = new PearsonCorrelationSimilarity(datamodel);
             UserNeighborhood neighborhood = new NearestNUserNeighborhood(2, user, datamodel);
