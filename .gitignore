@@ -68,3 +68,9 @@ aws-lambdas/s3-integration/build
 aws-lambdas/s3-integration/.deploy.sh.swp
 *.swo
 *.iml
+
+.gradle
+gradle
+gradlew
+gradlew.bat
+build
