@@ -17,14 +17,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class BasisUserBasedRecommender {
+    private String DATA_SOURCE = "/user-choices.properties";
 
-    public List<Recommendation> recommend(String fileName) {
+    public List<Recommendation> recommend(Integer userToRecommend, Integer recommendationsSize) {
         try {
-            DataModel datamodel = new FileDataModel(new File(this.getClass().getResource(fileName).getFile()));
+            DataModel datamodel = new FileDataModel(new File(this.getClass().getResource(DATA_SOURCE).getFile()));
             UserSimilarity user = new PearsonCorrelationSimilarity(datamodel);
             UserNeighborhood neighborhood = new NearestNUserNeighborhood(2, user, datamodel);
             Recommender recommender = new GenericUserBasedRecommender(datamodel, neighborhood,  user);
-            List<RecommendedItem> recommendations = recommender.recommend(1, 1);
+            List<RecommendedItem> recommendations = recommender.recommend(userToRecommend, recommendationsSize);
             return  recommendations.stream().map(item -> new Recommendation(String.valueOf(item.getItemID()), String.valueOf(item.getValue()))).collect(Collectors.toList());
         } catch (IOException|TasteException e) {
             throw new RecommendationException(e);
