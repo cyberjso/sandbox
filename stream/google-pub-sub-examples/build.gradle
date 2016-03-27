@@ -1,0 +1,12 @@
+group 'io.sandbox.stream'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.apis:google-api-services-pubsub:v1-rev9-1.21.0'
+}
