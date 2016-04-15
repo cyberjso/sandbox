@@ -1,0 +1,53 @@
+group 'io.sandbox.nebula'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'nebula.ospackage'
+
+mainClassName = "io.sandbox.nebula.App"
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.netflix.nebula:gradle-ospackage-plugin:3+"
+    }
+}
+
+repositories {
+    maven { url "http://jcenter.bintray.com/"}
+    maven { url "http://repo1.maven.org/maven2/"}
+    mavenLocal()
+}
+
+task packDeb(type: Deb) {
+    packageName = project.name
+    version = project.version
+
+    os = LINUX
+    into '/opt/' + project.name
+
+    from(jar.outputs.files) {
+        into 'lib'
+    }
+    from('build/scripts') {
+        into 'bin'
+        fileMode = 0550
+    }
+    from(configurations.runtime) {
+        into 'lib'
+    }
+    from('src/main/resources') {
+        fileType CONFIG | NOREPLACE
+        into 'conf'
+    }
+
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.17'
+}
