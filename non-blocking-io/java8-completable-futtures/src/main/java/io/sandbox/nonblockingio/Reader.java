@@ -18,8 +18,11 @@ public class Reader {
 
     public void read() {
         CompletionService service = new ExecutorCompletionService<List<String>>(Executors.newFixedThreadPool(3));
-        files.stream().forEach(file -> service.submit(() ->
-                FileUtils.readLines(new File(this.getClass().getClassLoader().getResource(file).getFile()))));
+        files.stream().forEach(file ->
+                service.submit(() ->
+                    FileUtils.readLines(
+                        new File(this.getClass().getClassLoader().getResource(file).getFile()))));
+
         files.stream().forEach(file -> {
             try  {
                 Future<List<String>> fileContent = service.take();
