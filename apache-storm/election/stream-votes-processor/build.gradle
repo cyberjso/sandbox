@@ -1,0 +1,24 @@
+group 'election'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+repositories {
+    mavenCentral() // MavenCentral
+    maven { url 'https://repository.apache.org/content/repositories/releases' }
+    maven { url 'http://clojars.org/repo' }
+    maven { url 'https://repository.cloudera.com/artifactory/cloudera-repos' }
+
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile('org.apache.storm:storm-core:0.9.1-incubating')
+    compile('org.codehaus.jackson:jackson-mapper-asl:1.9.13')
+
+
+}
