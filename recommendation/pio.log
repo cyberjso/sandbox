@@ -1,0 +1,1 @@
+2015-12-27 23:52:08,255 ERROR io.prediction.tools.console.Template$ [main] - Either PredictionIO/template-scala-paralell-recommendation is not a valid GitHub repository, or it does not have any tag. Aborting.
