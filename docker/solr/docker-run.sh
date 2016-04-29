@@ -1,0 +1,1 @@
+docker run --name solr1 -d -i jacksonoliveira/solr
