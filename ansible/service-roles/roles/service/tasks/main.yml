@@ -1,13 +1,13 @@
 ---
   - name: send package to target host
     copy:
-      src=os-package_1.0-SNAPSHOT_all.deb
-      dest=/tmp/os-package_1.0-SNAPSHOT_all.deb
+      src={{package_name}}
+      dest=/tmp/{{package_name}}
       mode=0777
 
   - name: install service package
-    shell: "dpkg -i /tmp/os-package_1.0-SNAPSHOT_all.deb"
     become: true
+    shell: "dpkg -i /tmp/{{package_name}}"
     args:
       executable: /bin/bash
     notify:
