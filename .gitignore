@@ -75,3 +75,4 @@ gradlew
 gradlew.bat
 build
 stream/google-pub-sub-examples/src/main/resources/auth.json
+*.retry
