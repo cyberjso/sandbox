@@ -10,3 +10,5 @@
     become: true
     args:
       executable: /bin/bash
+    notify:
+      - os-package started

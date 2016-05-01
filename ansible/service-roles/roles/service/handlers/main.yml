@@ -1,0 +1,3 @@
+---
+  - name: os-package started
+    service: name=os-package state=started
