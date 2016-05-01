@@ -24,8 +24,8 @@ repositories {
     mavenLocal()
 }
 
-task packDeb(type: Deb) {
-    packageName = project.name
+ospackage {
+    packageName = "os-package"
     version = project.version
 
     os = LINUX
@@ -48,6 +48,11 @@ task packDeb(type: Deb) {
 
 }
 
+buildDeb {
+    link('/etc/init.d/os-package', '/opt/os-package/bin/os-package')
+}
+
 dependencies {
     compile 'log4j:log4j:1.2.17'
 }
+
