@@ -10,5 +10,16 @@
     shell: "dpkg -i /tmp/{{package_name}}"
     args:
       executable: /bin/bash
+
+  - name: update config
+    become: true
+    template: >
+      src=log4j.properties.j2
+      dest=/opt/os-package/conf/log4j.properties
+      owner=root
+      group=root
+      mode=0644
     notify:
       - os-package started
+    tags:
+      - update_config

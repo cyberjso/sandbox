@@ -1,2 +1,3 @@
 
 package_name: os-package_1.0-SNAPSHOT_all.deb
+log_level: DEBUG
