@@ -1,0 +1,21 @@
+group 'io.sandbox.rx'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'application'
+apply plugin: 'java'
+
+mainClassName = 'io.sandbox.rx.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'io.sandbox.rx.Main'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.reactivex:rxjava:1.1.5'
+}
