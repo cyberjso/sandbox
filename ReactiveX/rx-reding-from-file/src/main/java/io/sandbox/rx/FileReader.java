@@ -31,9 +31,13 @@ public class FileReader {
         .groupBy(word -> word.trim())
         .flatMap(words -> words.count().map(counter -> new Pair(words.getKey(), counter)))
         .toList()
+
         .subscribe(pairs ->
                 pairs.forEach(
-                        item -> System.out.println("key: " + item.getKey() + " value: " + item.getValue())));
+                        item -> {
+                            System.out.println("printing *****");
+                            System.out.println("key: " + item.getKey() + " value: " + item.getValue());
+                        }));
     }
 
 }

@@ -1,0 +1,10 @@
+001|123|Jhon da Silva
+002|456|10.10|Soap
+002|789|20.56|Light Beer
+002|976|4.56|Tomato
+002|434|0.90|Bread
+001|780|Jack Oliveira
+002|244|2.10|Beer
+002|244|2.10|Beer
+002|244|2.10|Beer
+

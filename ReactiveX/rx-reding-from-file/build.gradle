@@ -18,4 +18,5 @@ repositories {
 
 dependencies {
     compile 'io.reactivex:rxjava:1.1.5'
+    compile 'com.google.guava:guava:19.0'
 }
