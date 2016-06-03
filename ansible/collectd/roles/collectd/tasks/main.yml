@@ -15,39 +15,28 @@
       state=present
       update_cache=yes
 
-  - name: setting up {{ managed_config_dir }} config dir
+  - name: create config directories
+    file: path={{ item }} state=directory mode=0755
     become: true
-    file:
-      path={{ managed_config_dir }}
-      state=directory
+    with_items:
+      - '{{ managed_config_dir }}'
+      - '{{ filtering_config_dir }}'
 
-   # TODO try to avoid this task repetitions using -with-items
-  - name: setting up {{ filtering_config_dir }} config dir
-    become: true
-    file:
-      path={{ filtering_config_dir }}
-      state=directory
-
-  - name: placing filtering configuration
+  - name: placing configuration files
     become: true
     copy:
-      src=filtering.conf
-      dest={{ filtering_config_dir }}/filtering.conf
+      src={{ item.fileName }}
+      dest={{ item.srcDir }}/{{item.fileName}}
+    with_items:
+      - {fileName: 'filtering.conf', srcDir: '{{ filtering_config_dir }}' }
+      - {fileName: '10-aggregation-cpu.conf',  srcDir: '{{ managed_config_dir }}' }
 
-  - name: placing CPU aggregation file
-    become: true
-    copy:
-      src=10-aggregation-cpu.conf
-      dest={{ managed_config_dir }}/10-aggregation-cpu.conf
 
-  - name: placing http-writter plugin
+  - name: placing template config files
     become: true
     template:
-      src=10-write_http-plugin.conf.j2
-      dest={{ managed_config_dir }}/10-write_http-plugin.conf
-
-  - name: placing signafx conf
-    become: true
-    template:
-      src=10-signalfx.conf.j2
-      dest={{ managed_config_dir }}/10-signalfx.conf
+      src={{ item.templateName }}
+      dest={{ managed_config_dir }}/{{item.fileName}}
+    with_items:
+      - {templateName: '10-write_http-plugin.conf.j2', fileName: '10-write_http-plugin.conf' }
+      - {templateName: '10-signalfx.conf.j2',  fileName: '10-signalfx.conf' }
