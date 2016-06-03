@@ -1,5 +1,5 @@
 managed_config_dir: /etc/collectd.d/managed_config
 filtering_config_dir: /etc/collectd.d/filtering_config
 
-api_token: "setup your token here !!!"
+api_token: "set your api token here !!!"
 siginalfx_host: https://ingest.signalfx.com
