@@ -1,0 +1,4 @@
+---
+  - name: restart collectd
+    become: true
+    service: name=collectd enabled=yes state=restarted

@@ -31,7 +31,6 @@
       - {fileName: 'filtering.conf', srcDir: '{{ filtering_config_dir }}' }
       - {fileName: '10-aggregation-cpu.conf',  srcDir: '{{ managed_config_dir }}' }
 
-
   - name: placing template config files
     become: true
     template:
@@ -40,3 +39,5 @@
     with_items:
       - {templateName: '10-write_http-plugin.conf.j2', fileName: '10-write_http-plugin.conf' }
       - {templateName: '10-signalfx.conf.j2',  fileName: '10-signalfx.conf' }
+    notify:
+      - restart collectd
