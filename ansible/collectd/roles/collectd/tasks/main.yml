@@ -3,3 +3,21 @@
     apt:
       name=software-properties-common
       state=present
+
+  - name: adding SignalFX apt-repository
+    apt_repository:
+      repo='ppa:signalfx/collectd-release'
+
+  - name: install package
+    become: true
+    apt:
+      name=collectd
+      state=present
+      update_cache=yes
+
+ - name: execute shell script
+    become: true
+    apt:
+      name=collectd
+      state=present
+      update_cache=yes
