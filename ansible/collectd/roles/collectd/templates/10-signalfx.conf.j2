@@ -6,8 +6,8 @@ TypesDB "/opt/signalfx-collectd-plugin/types.db.plugin"
   Interactive false
   Import "signalfx_metadata"
   <Module signalfx_metadata>
-    URL "%%%INGEST_HOST%%%/v1/collectd%%%EXTRA_DIMS%%%"
-    Token "%%%API_TOKEN%%%"
+    URL "{{ siginalfx_host }}/v1/collectd"
+    Token "{{ api_token }}"
     Notifications true
     NotifyLevel "OKAY"
     DPM false

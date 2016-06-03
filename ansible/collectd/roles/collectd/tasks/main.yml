@@ -22,7 +22,6 @@
       state=directory
 
    # TODO try to avoid this task repetitions using -with-items
-
   - name: setting up {{ filtering_config_dir }} config dir
     become: true
     file:
@@ -40,3 +39,15 @@
     copy:
       src=10-aggregation-cpu.conf
       dest={{ managed_config_dir }}/10-aggregation-cpu.conf
+
+  - name: placing http-writter plugin
+    become: true
+    template:
+      src=10-write_http-plugin.conf.j2
+      dest={{ managed_config_dir }}/10-write_http-plugin.conf
+
+  - name: placing signafx conf
+    become: true
+    template:
+      src=10-signalfx.conf.j2
+      dest={{ managed_config_dir }}/10-signalfx.conf
