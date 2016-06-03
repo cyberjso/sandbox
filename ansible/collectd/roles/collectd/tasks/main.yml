@@ -15,14 +15,28 @@
       state=present
       update_cache=yes
 
-  - name: setting up config dir
+  - name: setting up {{ managed_config_dir }} config dir
     become: true
     file:
-      path=/etc/collectd.d/managed_config
+      path={{ managed_config_dir }}
       state=directory
 
-  - name: placing config files
+   # TODO try to avoid this task repetitions using -with-items
+
+  - name: setting up {{ filtering_config_dir }} config dir
+    become: true
+    file:
+      path={{ filtering_config_dir }}
+      state=directory
+
+  - name: placing filtering configuration
+    become: true
+    copy:
+      src=filtering.conf
+      dest={{ filtering_config_dir }}/filtering.conf
+
+  - name: placing CPU aggregation file
     become: true
     copy:
       src=10-aggregation-cpu.conf
-      dest=/etc/collectd.d/managed_config/10-aggregation-cpu.conf
+      dest={{ managed_config_dir }}/10-aggregation-cpu.conf
