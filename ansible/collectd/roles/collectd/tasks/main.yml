@@ -15,9 +15,14 @@
       state=present
       update_cache=yes
 
- - name: execute shell script
+  - name: setting up config dir
     become: true
-    apt:
-      name=collectd
-      state=present
-      update_cache=yes
+    file:
+      path=/etc/collectd.d/managed_config
+      state=directory
+
+  - name: placing config files
+    become: true
+    copy:
+      src=10-aggregation-cpu.conf
+      dest=/etc/collectd.d/managed_config/10-aggregation-cpu.conf
