@@ -1,0 +1,2 @@
+managed_config_dir: /etc/collectd.d/managed_config
+filtering_config_dir: /etc/collectd.d/filtering_config
