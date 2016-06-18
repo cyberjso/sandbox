@@ -1,0 +1,13 @@
+
+plugins {
+    id "com.github.lkishalmi.gatling" version "0.2.1"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.gatling:gatling-core:2.1.7'
+    compile 'io.gatling:gatling-app:2.1.7'
+}
