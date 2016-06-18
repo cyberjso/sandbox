@@ -1,15 +1,15 @@
 package io.sandbox.rx.naosei;
 
-import com.google.common.collect.Lists;
 import io.sandbox.rx.pipeline.FileObservableBuilder;
 import javafx.util.Pair;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import rx.Observable;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * Transforms a CSV  file into a map, partitioning the ids and skiping the column names
@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
  * Map("ids" -> "id=10&id=11"),
  **/
 public class DbDumpParser {
+    private File file  = new File("D:/app/remote-desktop/Dropbox/scripts/thomson/output.txt");
 
     public void process(String fileName) {
 
@@ -49,7 +50,7 @@ public class DbDumpParser {
                 .filter(new Func1<Pair<String, String>, Boolean>() {
 
                     public Boolean call(Pair<String, String> stringStringPair) {
-                        return !stringStringPair.getValue().contentEquals("null");
+                        return stringStringPair.getValue().contentEquals("null");
                     }
 
                 })
@@ -60,11 +61,11 @@ public class DbDumpParser {
                     }
 
                 })
-                .toList()
+                /*.toList()
                 .flatMap(new Func1<List<String>, Observable<List<String>>>() {
 
                     public Observable<List<String>> call(List<String> strings) {
-                        return Observable.from(Lists.partition(strings, 2));
+                        return Observable.from(Lists.partition(strings, 4));
                     }
 
                 })
@@ -76,11 +77,22 @@ public class DbDumpParser {
                                         strings.stream().map(item -> "id=" + item).collect(Collectors.joining("&")) + "\"),"});
                     }
 
+                })*/
+                .map(new Func1<String, String>() {
+
+                    public String call(String stringStringPair) {
+                       return "Map(\"id\" -> \"" + stringStringPair + "\"),";
+                    }
+
                 })
                 .subscribe(new Action1<String>() {
 
                     public void call(String s) {
-                        System.out.println(s);
+                        try {
+                            FileUtils.writeStringToFile(file, s + "\n", Charset.defaultCharset(), true);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
 
 

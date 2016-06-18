@@ -16,7 +16,9 @@ public class FileObservableBuilder  {
         public void call(Subscriber<? super String> subscriber) {
             try {
                 Files.lines(Paths.get(FileObservableBuilder.class.getResource("/" + fileName).toURI()), Charset.defaultCharset())
-                        .forEach(line -> subscriber.onNext(line));
+                        .forEach(line ->
+                                subscriber.onNext(line)
+                        );
                 subscriber.onCompleted();
             } catch (Exception e) {
                 throw new RuntimeException(e);

@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new DbDumpParser().process("db-dump.txt");
+        new DbDumpParser().process("input.txt");
 
     }
 

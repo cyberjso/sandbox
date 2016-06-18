@@ -20,5 +20,5 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.5'
     compile 'com.google.guava:guava:19.0'
     compile 'org.apache.commons:commons-lang3:3.4'
-
+    compile 'commons-io:commons-io:2.5'
 }
