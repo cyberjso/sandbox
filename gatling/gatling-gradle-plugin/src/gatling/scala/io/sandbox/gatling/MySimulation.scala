@@ -7,7 +7,13 @@ import io.gatling.http.Predef._
 
 class MySimulation extends Simulation {
 
-  val sc = scenario("Timeout request scenario").exec(http("Timeout").get("/408"))
+  val feeder = ssv("input.txt").random
+
+  val sc = scenario("Timeout request scenario")
+            .feed(feeder)
+            .exec(
+              http("Timeout")
+              .get("/${status_code}"))
 
   def conf = http.baseURL("https://http.cat")
 
