@@ -3,6 +3,10 @@ plugins {
     id "com.github.lkishalmi.gatling" version "0.2.1"
 }
 
+gatling {
+    jvmArgs = [ '-server', '-Xms512M', '-Xmx512M', '-Djava.net.preferIPv4Stack=true', '-DconcurrentUsers=100', ]
+}
+
 repositories {
     mavenCentral()
 }

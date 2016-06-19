@@ -9,7 +9,7 @@ class MySimulation extends Simulation {
 
   val feeder = ssv("input.txt").random
 
-  val sc = scenario("Timeout request scenario")
+  val sc = scenario("Basic request scenario")
             .feed(feeder)
             .exec(
               http("Timeout")
@@ -17,6 +17,8 @@ class MySimulation extends Simulation {
 
   def conf = http.baseURL("https://http.cat")
 
-  setUp(sc.inject(constantUsersPerSec(1).during(60 seconds))).protocols(conf)
+  val concurrentUsers = Integer.getInteger("concurrentUsers", 1)
+
+  setUp(sc.inject(constantUsersPerSec(concurrentUsers toDouble).during(60 seconds))).protocols(conf)
 
 }
