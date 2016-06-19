@@ -4,6 +4,7 @@ plugins {
 }
 
 gatling {
+    jvmArgs = [ '-server', '-Xms512M', '-Xmx512M', '-Djava.net.preferIPv4Stack=true', '-DconcurrentUsers=' + project.getProperty('users') ]
 }
 
 repositories {
