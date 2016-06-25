@@ -27,6 +27,6 @@ public class MyService {
     }
 
     public MyOutput doSomething() {
-        return impls.get(new Random().nextInt(2)).doSomethihg();
+        return impls.get(new Random().nextInt(3)).doSomethihg();
     }
 }
