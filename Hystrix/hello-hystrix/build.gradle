@@ -1,0 +1,13 @@
+group 'io.sandbox.hystrix'
+
+version '1.0'
+
+apply plugin: 'scala'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.netflix.hystrix:hystrix-core:1.5.3'
+}
