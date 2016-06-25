@@ -1,4 +1,4 @@
-package io.sandbox.rx.naosei;
+package io.sandbox.rx.fileparser;
 
 import io.sandbox.rx.pipeline.FileObservableBuilder;
 import javafx.util.Pair;

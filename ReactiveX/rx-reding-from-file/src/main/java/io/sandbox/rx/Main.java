@@ -1,6 +1,6 @@
 package io.sandbox.rx;
 
-import io.sandbox.rx.naosei.DbDumpParser;
+import io.sandbox.rx.fileparser.DbDumpParser;
 
 public class Main {
 
