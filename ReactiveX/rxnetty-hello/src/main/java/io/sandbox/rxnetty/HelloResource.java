@@ -20,6 +20,7 @@ public class HelloResource {
             public Observable<Void> handle(HttpServerRequest<ByteBuf> request, HttpServerResponse<ByteBuf> response) {
                 if (request.getPath().contains("/api/hello")) {
                     response.setStatus(HttpResponseStatus.OK);
+
                     response.writeString("Server returning ok");
                 }  else {
                     response.setStatus(HttpResponseStatus.NOT_FOUND);

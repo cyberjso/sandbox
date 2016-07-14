@@ -1,0 +1,13 @@
+group 'io.sandobx.rxnetty'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.reactivex:rxnetty:0.4.16'
+    compile 'org.cassandraunit:cassandra-unit:3.0.0.1'
+}
