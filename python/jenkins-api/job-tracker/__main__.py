@@ -8,7 +8,7 @@ def get_server_instance():
     jenkins_user = str(sys.argv[3])
     jenkins_password = str(sys.argv[4])
     
-    return Jenkins('http://' + jenkins_host +':8080/', username = jenkins_user, password = jenkins_password)
+    return Jenkins('http://localhost:8080/', username = jenkins_user, password = jenkins_password)
 
 def get_running_jobs():
     server  = get_server_instance() 
