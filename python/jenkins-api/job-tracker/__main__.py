@@ -13,7 +13,8 @@ def get_running_jobs():
     running_jobs = []
     for j in server.get_jobs():
         job_instance = server.get_job(j[0])
-        if job_instance.is_running():
+        print job_instance
+        if job_instance.is_running() and job_instance.name != 'job-tracker':
             running_jobs.append(job_instance.name)
 
     return running_jobs        
