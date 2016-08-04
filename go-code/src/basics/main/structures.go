@@ -50,6 +50,6 @@ func main() {
 	fmt.Printf("Jack %s\n", Jack.Name)
 	fmt.Printf("Jhon %s\n", buildJhon().Name)
 	fmt.Printf("Jhon adress %s\n", buildJhon().Name)
-	// buildJhon().Address.letterAddress would work too. This is similar to mixins in another languages
+	// buildJhon().Address.letterAddress would work too. This is similar to mixins in other languages
 	fmt.Printf("Full Jhon Address %s\n", buildJhon().letterAddress())
 }
