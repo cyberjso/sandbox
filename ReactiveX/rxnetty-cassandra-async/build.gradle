@@ -1,13 +1,21 @@
 group 'io.sandobx.rxnetty'
+
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "io.sandbox.rxnetty.Main"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'io.reactivex:rxnetty:0.4.16'
-    compile 'org.cassandraunit:cassandra-unit:3.0.0.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    compile group: 'io.reactivex', name: 'rxnetty', version: '0.4.17'
+    compile group: 'io.reactivex', name: 'rxjava-reactive-streams', version: '1.1.1'
+    compile group: 'com.datastax.cassandra', name: 'cassandra-driver-core', version: '3.1.0'
+    compile group: 'net.oneandone.troilus', name: 'troilus-core', version: '0.18'
+
 }
