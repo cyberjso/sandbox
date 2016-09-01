@@ -8,7 +8,7 @@ namespace ExternalConfigExample.View
 {
     public interface IHelloView
     {
-        void UpdateView(Output value);
+        void Update(Output value);
     }
 
 }

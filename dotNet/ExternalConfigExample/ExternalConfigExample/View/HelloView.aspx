@@ -11,7 +11,8 @@
         <p>
             <asp:button id="myButton" text="Click here" OnClick="ShowProperties" runat="server" />
         </p>
-        <ul id="properties" runat="server" />
+        <ul id="properties" runat="server">Application Properties </ul>
+        <ul id="connectionStrings" runat="server">Connection Strings </ul>
 
         
     </form>

@@ -12,17 +12,28 @@ namespace ExternalConfigExample.Model
         {
             Output output = new Output();
             output.AppSettings = getAppSettings();
+            output.ConnectionStrings = getConnectionStrings();
             return output;
         }
 
         private List<String> getAppSettings() 
         {
             return new List<String>() { 
-                property("Propriedade1"), 
-                property("Propriedade2"), 
-                property("Propriedade3") };
+                AppSettings("Propriedade1"), 
+                AppSettings("Propriedade2"), 
+                AppSettings("Propriedade3") };
         }
 
-        private String property(String name) { return WebConfigurationManager.AppSettings[name]; }
+        private List<String> getConnectionStrings()
+        {
+            return new List<String>() { 
+                ConnectionString("Propriedade4"), 
+                ConnectionString("Propriedade5"), 
+                ConnectionString("Propriedade6") };
+        }
+
+        private String ConnectionString(String name) { return WebConfigurationManager.ConnectionStrings[name].ConnectionString; }
+
+        private String AppSettings(String name) { return WebConfigurationManager.AppSettings[name]; }
     }
 }

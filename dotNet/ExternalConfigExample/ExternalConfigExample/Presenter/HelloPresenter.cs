@@ -20,7 +20,7 @@ namespace ExternalConfigExample.Presenter
 
         public void Send()
         {
-            HelloView.UpdateView(Business.DoSomething());
+            HelloView.Update(Business.DoSomething());
         }
 
     }

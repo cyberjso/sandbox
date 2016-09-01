@@ -24,9 +24,26 @@ namespace ExternalConfigExample.View
             Presenter.Send();
         }
 
-        public void UpdateView(Output output) 
+        public void Update(Output output)
         {
-            foreach (String value in  output.AppSettings ) {
+            WriteAppSettings(output);
+            WriteConnectionStrings(output);
+        }
+
+        private void WriteConnectionStrings(Output output)
+        {
+            foreach (String value in output.ConnectionStrings)
+            {
+                HtmlGenericControl li = new HtmlGenericControl("li");
+                li.InnerText = value;
+                connectionStrings.Controls.Add(li);
+            }
+        }
+
+        private void WriteAppSettings(Output output)
+        {
+            foreach (String value in output.AppSettings)
+            {
                 HtmlGenericControl li = new HtmlGenericControl("li");
                 li.InnerText = value;
                 properties.Controls.Add(li);
