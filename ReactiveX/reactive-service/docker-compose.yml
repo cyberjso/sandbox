@@ -1,0 +1,14 @@
+version: '2'
+services:
+  service-host:
+    build: .
+    ports:
+     - "8080:8080"
+    depends_on:
+      - cassandra-host
+  cassandra-host:
+      image: cassandra
+      command: cassandra-stress write n=1
+      ports:
+        - "9042:9042"
+

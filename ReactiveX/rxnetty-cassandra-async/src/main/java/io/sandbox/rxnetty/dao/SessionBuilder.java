@@ -4,7 +4,7 @@ import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 
 public class SessionBuilder {
-    private String HOST = "localhost";
+    private String HOST = "cassandra-host";
     private String KEYSPACE = "keyspace1";
 
     public Session build() {
