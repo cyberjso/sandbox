@@ -76,3 +76,10 @@ gradlew.bat
 build
 stream/google-pub-sub-examples/src/main/resources/auth.json
 *.retry
+
+*.exe
+go-code/pkg/*
+go-code/src/github.com/*
+go-code/src/golang/*
+go-code/src/*.in/*
+go-code/src/*.org/*
