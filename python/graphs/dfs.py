@@ -1,33 +1,36 @@
 
+from collections import OrderedDict
+
 def init(graph):
 
-    def traverse(node, graph, visited_nodes, stack):
+    def is_not_visited_node(node, visited_nodes):
+        return True if node not in visited_nodes else False
 
-        if len(stack) == 0 and len(visited_nodes) > 0:
-            return visited_nodes
-    
-        if node in visited_nodes:
-            updated_stack = list(set(stack) -  set([node]))
-            traverse(stack.pop(), graph, visited_nodes, updated_stack)
-        else:
-            stack.append(node)
-            visited_nodes.append(node)
-            if node  not in graph:
-                traverse(node, graph, visited_nodes, stack)
-            else:
-                for child_node in graph[node]:
-                    traverse(child_node, graph, visited_nodes, stack)
+    def has_no_children(node, graph):
+        return True if node not in graph else False
 
-    stack = []
+    def traverse(nodes, visited_nodes):
+
+        for node in nodes:
+            if is_not_visited_node(node, visited_nodes):
+                if has_no_children(node, graph):
+                    visited_nodes.append(node)
+                else:
+                    traverse(graph[node], visited_nodes)
+
+        return visited_nodes
+
     visited_nodes = []
-    for node in graph:
-        visited_nodes.append(traverse(node, graph, visited_nodes, stack))
+    for node, values in graph.iteritems():
+        visited_nodes.append(node)
+        traverse(graph[node], visited_nodes)
+    print visited_nodes
 
 
 if __name__ == "__main__":
-    graph = {}
-    graph = {"S": ["A", "B", "C"],
+    graph = OrderedDict({"S": ["A", "B", "C"],
              "A": ["D"],
              "C": ["D"],
-             "B": ["D"]}
+             "B": ["D"],
+             "C": ["E", "F", "G", "H"]})
     init(graph)
