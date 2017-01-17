@@ -72,13 +72,13 @@ Vagrant.configure(2) do |config|
 
 	sudo su
 	echo 'sudo sh /opt/neo4j-community-3.0.3/bin/neo4j  start' >> /etc/profile
-	exit
 
 	wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.rpm
 	sudo yum localinstall jdk-8u102-linux-x64.rpm  -y
 	rm jdk-8u102-linux-x64.rpm 
 
 	sudo sh /opt/neo4j-community-3.0.3/bin/neo4j  start
+	sudo yum install unzip -y	
   SHELL
 
   config.vm.network "forwarded_port", guest: 7474, host: 8080
