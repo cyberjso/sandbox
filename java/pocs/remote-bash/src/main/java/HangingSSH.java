@@ -25,7 +25,7 @@ public class HangingSSH {
             process.waitFor();
             String successfulOutput = IOUtils.toString(process.getInputStream(), Charset.defaultCharset()).trim();
             String errorOutput = IOUtils.toString(process.getErrorStream(), Charset.defaultCharset()).trim();
-            Long totalTime = System.currentTimeMillis() - startTime;
+            Long totalTime = startTime - System.currentTimeMillis();
 
             logger.info("Elapsed time: {}s", (totalTime - startTime) / 1000);
             boolean hasError = StringUtils.isNotEmpty(errorOutput);
