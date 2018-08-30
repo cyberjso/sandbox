@@ -36,7 +36,7 @@ public class Main {
 
 	private static void writeTest(Session session) {
 		PreparedStatement preparedStatement  =  session.prepare("insert into table1 (key, value) values (?, ?)");
-		int batches = 100;
+		int batches = 1000000;
 		int records = 1000;
 
 		for (int i = 0; i< batches; i++) {
@@ -47,6 +47,8 @@ public class Main {
 				batch.add(preparedStatement.bind(String.format("key-%s-%s", i, x), "value_ " + i));
 
 			session.execute(batch);
+
+			System.out.println("write test complete");
 		}
 
 	}
