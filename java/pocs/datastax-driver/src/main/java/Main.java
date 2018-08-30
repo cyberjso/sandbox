@@ -12,7 +12,7 @@ public class Main {
 		String hosts  =  System.getenv("HOSTS");
 
 		if (StringUtil.isNullOrEmpty(hosts))
-			throw new RuntimeException("A comma separed list needs to set as HOSTS env variable");
+			throw new RuntimeException("A comma separated list needs to set as HOSTS env variable");
 
 		Session session = buildSession(hosts.split(","));
 
@@ -25,7 +25,7 @@ public class Main {
 		resultSet.forEach(row -> {
 			String key =  row.getString(0);
 			String value = row.getString(1);
-			System.out.println(String.format("key: %s - value: s%", key, value));
+			System.out.println(String.format("key: %s - value: %s", key, value));
 		});
 		session.close();
 	}
