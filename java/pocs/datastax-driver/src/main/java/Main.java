@@ -17,7 +17,12 @@ public class Main {
 		Session session = buildSession(hosts.split(","));
 
 		session.execute("use my_keyspace_v2");
+		readTest(session);
+		writeTest(session);
+		session.close();
+	}
 
+	private static void readTest(Session session) {
 		System.out.println("Querying cluster");
 		ResultSet resultSet = session.execute("select key, value from table1");
 
@@ -27,8 +32,25 @@ public class Main {
 			String value = row.getString(1);
 			System.out.println(String.format("key: %s - value: %s", key, value));
 		});
-		session.close();
 	}
+
+	private static void writeTest(Session session) {
+		PreparedStatement preparedStatement  =  session.prepare("insert into table1 (value) values (?)");
+		int batches = 100;
+		int records = 1000;
+
+		for (int i = 0; i< batches; i++) {
+			System.out.println("Starting batch " + i);
+			BatchStatement batch = new BatchStatement();
+
+			for (int x = 0; x < records; x++)
+				batch.add(preparedStatement.bind("value_ " + i));
+
+			session.execute(batch);
+		}
+
+	}
+
 
 	private static Session buildSession(String[] nodes) {
 		System.out.println("Connecting to: " + Arrays.toString(nodes));
