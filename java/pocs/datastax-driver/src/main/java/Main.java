@@ -36,7 +36,7 @@ public class Main {
 
 	private static void writeTest(Session session) {
 		PreparedStatement preparedStatement  =  session.prepare("insert into table1 (key, value) values (?, ?)");
-		int batches = 1000000;
+		int batches = 10000;
 		int records = 1000;
 
 		for (int i = 0; i< batches; i++) {
@@ -55,6 +55,7 @@ public class Main {
 
 	private static Session buildSession(String[] nodes) {
 		System.out.println("Connecting to: " + Arrays.toString(nodes));
+
 		QueryOptions options =  new QueryOptions().setConsistencyLevel(ConsistencyLevel.LOCAL_QUORUM);
 		Cluster cluster = Cluster.builder()
 				.addContactPoints(nodes)
