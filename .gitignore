@@ -71,8 +71,6 @@ aws-lambdas/s3-integration/.deploy.sh.swp
 
 .gradle
 gradle
-gradlew
-gradlew.bat
 build
 stream/google-pub-sub-examples/src/main/resources/auth.json
 *.retry
