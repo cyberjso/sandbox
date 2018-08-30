@@ -35,7 +35,7 @@ public class Main {
 	}
 
 	private static void writeTest(Session session) {
-		PreparedStatement preparedStatement  =  session.prepare("insert into table1 (value) values (?)");
+		PreparedStatement preparedStatement  =  session.prepare("insert into table1 (key, value) values (?, ?)");
 		int batches = 100;
 		int records = 1000;
 
@@ -44,13 +44,12 @@ public class Main {
 			BatchStatement batch = new BatchStatement();
 
 			for (int x = 0; x < records; x++)
-				batch.add(preparedStatement.bind("value_ " + i));
+				batch.add(preparedStatement.bind(String.format("key-%s-%s", i, x), "value_ " + i));
 
 			session.execute(batch);
 		}
 
 	}
-
 
 	private static Session buildSession(String[] nodes) {
 		System.out.println("Connecting to: " + Arrays.toString(nodes));
