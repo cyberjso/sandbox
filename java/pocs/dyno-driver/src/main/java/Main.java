@@ -57,13 +57,14 @@ public class Main {
 				.filter(content -> content.contains(","))
 				.map( node -> {
 						String[] n = node.split(",");
-						return buildNodeInfo(n[0], n[1]);
+						return buildNodeInfo(n[0], n[1], n[2]);
 				}).collect(Collectors.toList());
 	}
 
-	private static Map<String, String> buildNodeInfo(String server, String rack) {
+	private static Map<String, String> buildNodeInfo(String server, String rack, String token) {
 		return new HashMap<String, String>() {{
 			put("ip", server);
+			put("token", token);
 			put("hostname", server);
 			put("rack", rack);
 			put("zone", rack);
