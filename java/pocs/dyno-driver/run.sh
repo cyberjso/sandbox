@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 export CLUSTER_NAME="myclusterName"
 

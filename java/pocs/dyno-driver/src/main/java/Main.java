@@ -25,12 +25,14 @@ public class Main {
 		String testContent = StringUtils.repeat('*', 100000000);
 
 		long sleepInterval = 5000;
+		int ttl = 20;
+
 		logger.info("Starting the test");
 
 		while (true) {
 			Thread.sleep(sleepInterval);
 			UUID key = UUID.randomUUID();
-			dynoClient.set(key.toString(), testContent);
+			dynoClient.setex(key.toString(), ttl, testContent);
 
 			logger.info("{} successfully inserted. Waiting for {} seconds to move next", clusterName, sleepInterval / 1000);
 			Thread.sleep(sleepInterval);
