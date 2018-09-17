@@ -30,6 +30,8 @@ public class DynoConnectionManager {
 						new ArchaiusConnectionPoolConfiguration(clusterName)
 								.withTokenSupplier(buildTokenSupplier(nodes))
 								.setMaxConnsPerHost(1)
+								.setConnectTimeout(5000)
+								.setSocketTimeout(5000)
 								.setRetryPolicyFactory(new RetryNTimes.RetryFactory(1,true))
 				)
 				.withHostSupplier(buildHosSupplier(nodes))

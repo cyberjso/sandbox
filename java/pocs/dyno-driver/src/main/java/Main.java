@@ -1,5 +1,5 @@
 import com.netflix.dyno.jedis.DynoJedisClient;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,21 +22,8 @@ public class Main {
 
 		DynoJedisClient dynoClient = new DynoConnectionManager().connect(clusterName, nodes);
 
-		String testContent = StringUtils.repeat('*', 100000000);
-
-		long sleepInterval = 5000;
-		int ttl = 150;
-
-		logger.info("Starting the test");
-
-		while (true) {
-			Thread.sleep(sleepInterval);
-			UUID key = UUID.randomUUID();
-			dynoClient.setex(key.toString(), ttl, testContent);
-
-			logger.info("{} successfully inserted. Waiting for {} seconds to move next", clusterName, sleepInterval / 1000);
-			Thread.sleep(sleepInterval);
-		}
+		new Thread(new Writer(dynoClient, buildKeys(5))).start();
+		//new Thread(new Reader(dynoClient, buildKeys(5))).start();
 	}
 
 	private static boolean isMissingEnvVars() {
@@ -58,9 +45,23 @@ public class Main {
 				.stream()
 				.filter(content -> content.contains(","))
 				.map( node -> {
-						String[] n = node.split(",");
-						return buildNodeInfo(n[0], n[1], n[2]);
+					String[] n = node.split(",");
+					return buildNodeInfo(n[0], n[1], n[2]);
 				}).collect(Collectors.toList());
+	}
+
+	private static List<String> buildKeys(int size) {
+		List<String> keys = new LinkedList<>();
+		int counter = 0;
+
+		while (counter < size) {
+			keys.add("key_" + counter);
+			counter++;
+		}
+
+		logger.info("{} keys generated", counter);
+
+		return keys;
 	}
 
 	private static Map<String, String> buildNodeInfo(String server, String rack, String token) {
