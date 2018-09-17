@@ -184,3 +184,33 @@ com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectExcep
 2018-09-17 10:32:33 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
 2018-09-17 10:32:34 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
 2018-09-17 10:32:34 [pool-4-thread-1] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:59:44 [main] INFO  DynoConnectionManager:21 - Connecting to null nodes
+2018-09-17 10:59:44 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 10:59:44 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 10:59:44 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@23986957
+2018-09-17 10:59:44 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 10:59:44 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[null] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 10:59:44 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app null
+2018-09-17 10:59:44 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 10:59:44 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:59:44 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:59:44 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:59:45 [pool-4-thread-1] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:59:45 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 11:01:25 [main] INFO  DynoConnectionManager:21 - Connecting to innovatedebug-dynomite-1p-d0perf-r0-v1 nodes
+2018-09-17 11:01:25 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 11:01:25 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 11:01:25 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@23986957
+2018-09-17 11:01:25 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 11:01:26 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[innovatedebug-dynomite-1p-d0perf-r0-v1] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 11:01:26 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 11:01:26 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 11:01:26 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 11:01:26 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 11:01:26 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 11:01:26 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 11:01:26 [pool-4-thread-1] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 11:01:26 [main] INFO  ConnectionPoolImpl:597 - registered mbean com.netflix.dyno.connectionpool.impl:type=MonitorConsole
+2018-09-17 11:01:26 [main] INFO  DynoConnectionManager:35 - Connected to innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 11:01:27 [main] INFO  Main:30 - Starting the test
+2018-09-17 11:01:53 [Thread-1] INFO  HostConnectionPoolImpl:148 - Shutting down connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]

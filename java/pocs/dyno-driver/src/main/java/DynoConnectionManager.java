@@ -39,6 +39,7 @@ public class DynoConnectionManager {
 
 	private TokenMapSupplier buildTokenSupplier(List<Map<String, String>> nodes) {
 		String json  =  new Gson().toJson(nodes);
+		System.out.println(json);
 		TokenMapSupplier testTokenMapSupplier = new AbstractTokenMapSupplier() {
 			public String getTopologyJsonPayload(String hostname) {
 				return json;

@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String args[]) throws InterruptedException {
 		if (isMissingEnvVars()) return;
 
-		String clusterName =  System.getenv("innovatedebug-dynomite-1p-d0perf-r0-v1");
+		String clusterName =  System.getenv("CLUSTER_NAME");
 		List<Map<String, String>> nodes = parseClusterNodes(System.getenv("CLUSTER_NODES"));
 
 		if (nodes.isEmpty()) {
