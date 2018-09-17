@@ -25,7 +25,7 @@ public class Main {
 		String testContent = StringUtils.repeat('*', 100000000);
 
 		long sleepInterval = 5000;
-		int ttl = 20;
+		int ttl = 150;
 
 		logger.info("Starting the test");
 
