@@ -22,8 +22,8 @@ public class Main {
 
 		DynoJedisClient dynoClient = new DynoConnectionManager().connect(clusterName, nodes);
 
-		new Thread(new Writer(dynoClient, buildKeys(5))).start();
-		//new Thread(new Reader(dynoClient, buildKeys(5))).start();
+		new Thread(new Writer(dynoClient, buildKeys(500))).start();
+		new Thread(new Reader(dynoClient, buildKeys(500))).start();
 	}
 
 	private static boolean isMissingEnvVars() {
