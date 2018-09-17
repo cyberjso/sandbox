@@ -1,0 +1,186 @@
+2018-09-17 09:20:35 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 09:20:35 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 09:20:35 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@2b546384
+2018-09-17 09:20:35 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 09:20:36 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[innovatedebug-dynomite-1p-d0perf-r0-v1] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 09:20:36 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 09:20:36 [pool-4-thread-3] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:36 [pool-4-thread-3] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:20:36 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:36 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:36 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:20:36 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:20:37 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:37 [pool-4-thread-3] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:39 [pool-4-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:39 [pool-4-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:502) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:498) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:20:39 [main] INFO  ConnectionPoolImpl:597 - registered mbean com.netflix.dyno.connectionpool.impl:type=MonitorConsole
+2018-09-17 09:20:54 [pool-3-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:54 [pool-3-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:20:56 [pool-3-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:20:56 [pool-3-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:151) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.updateHosts(ConnectionPoolImpl.java:261) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$3.run(ConnectionPoolImpl.java:537) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_151]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:21:26 [pool-3-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:21:26 [pool-3-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:21:29 [pool-3-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:21:29 [pool-3-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:151) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.updateHosts(ConnectionPoolImpl.java:261) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$3.run(ConnectionPoolImpl.java:537) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_151]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:21:59 [pool-3-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:21:59 [pool-3-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:22:02 [pool-3-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:22:02 [pool-3-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:151) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.updateHosts(ConnectionPoolImpl.java:261) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$3.run(ConnectionPoolImpl.java:537) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_151]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:27:41 [main] INFO  DynoConnectionManager:21 - Connecting to innovatedebug-dynomite-1p-d0perf-r0-v1 nodes
+2018-09-17 09:27:41 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 09:27:41 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 09:27:41 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@2c34f934
+2018-09-17 09:27:41 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 09:27:42 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[innovatedebug-dynomite-1p-d0perf-r0-v1] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 09:27:42 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 09:27:42 [pool-4-thread-3] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:42 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:42 [pool-4-thread-3] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:27:42 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:42 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:27:42 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:27:42 [pool-4-thread-3] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:42 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:44 [pool-4-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:44 [pool-4-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:502) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:498) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:27:44 [main] INFO  ConnectionPoolImpl:597 - registered mbean com.netflix.dyno.connectionpool.impl:type=MonitorConsole
+2018-09-17 09:27:44 [main] INFO  DynoConnectionManager:35 - Connected to innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 09:27:45 [main] INFO  Main:21 - Starting the test
+2018-09-17 09:27:59 [pool-3-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:27:59 [pool-3-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:28:02 [pool-3-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:28:02 [pool-3-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:151) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.updateHosts(ConnectionPoolImpl.java:261) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$3.run(ConnectionPoolImpl.java:537) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_151]
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180) [?:1.8.0_151]
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:28:21 [Thread-1] INFO  HostConnectionPoolImpl:148 - Shutting down connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:51 [main] INFO  DynoConnectionManager:21 - Connecting to innovatedebug-dynomite-1p-d0perf-r0-v1 nodes
+2018-09-17 09:33:51 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 09:33:51 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 09:33:52 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@2c34f934
+2018-09-17 09:33:52 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 09:33:52 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[innovatedebug-dynomite-1p-d0perf-r0-v1] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 09:33:52 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 09:33:52 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:52 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:52 [pool-4-thread-3] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:52 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:33:52 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:33:52 [pool-4-thread-3] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:33:53 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:53 [pool-4-thread-3] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:55 [pool-4-thread-1] WARN  HostConnectionPoolImpl:171 - Unable to make any successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:33:55 [pool-4-thread-1] INFO  ConnectionPoolImpl:197 - Failed to init host pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+com.netflix.dyno.connectionpool.exception.DynoConnectException: DynoConnectException: [host=Host [hostname=UNKNOWN, ipAddress=UNKNOWN, port=0, rack: UNKNOWN, datacenter: UNKNOW, status: Down], latency=0(0), attempts=0]Unable to make ANY successful connections to host Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+	at com.netflix.dyno.connectionpool.impl.HostConnectionPoolImpl.primeConnections(HostConnectionPoolImpl.java:173) ~[dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl.addHost(ConnectionPoolImpl.java:176) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:502) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at com.netflix.dyno.connectionpool.impl.ConnectionPoolImpl$2.call(ConnectionPoolImpl.java:498) [dyno-core-1.5.8-rc.4.jar:1.5.8-rc.4]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_151]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_151]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_151]
+2018-09-17 09:33:55 [main] INFO  ConnectionPoolImpl:597 - registered mbean com.netflix.dyno.connectionpool.impl:type=MonitorConsole
+2018-09-17 09:33:55 [main] INFO  DynoConnectionManager:35 - Connected to innovatedebug-dynomite-1p-d0perf-r0-v1
+2018-09-17 09:33:55 [main] INFO  Main:21 - Starting the test
+2018-09-17 09:34:10 [pool-3-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:34:10 [pool-3-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 09:34:11 [Thread-1] INFO  HostConnectionPoolImpl:148 - Shutting down connection pool for host:Host [hostname=34.219.3.25, ipAddress=null, port=8102, rack: us-west-2a, datacenter: us-west-2, status: Up]
+2018-09-17 09:34:11 [Thread-1] INFO  ConnectionPoolImpl:214 - Remove host: Successfully removed host 34.219.3.25 from connection pool
+2018-09-17 09:34:11 [Thread-1] INFO  HostConnectionPoolImpl:148 - Shutting down connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 09:48:46 [main] ERROR Main:36 - Env variable CLUSTER_NAME needs to be set
+2018-09-17 09:49:13 [main] ERROR Main:41 - Env variable CLUSTER_NODES needs to be set
+2018-09-17 10:30:31 [main] INFO  DynoConnectionManager:21 - Connecting to null nodes
+2018-09-17 10:30:31 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 10:30:31 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 10:30:31 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@23986957
+2018-09-17 10:30:32 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 10:30:32 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[null] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 10:30:33 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app null
+2018-09-17 10:30:33 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:30:33 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:30:33 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 10:30:33 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:30:33 [pool-4-thread-1] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:30:33 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 10:32:33 [main] INFO  DynoConnectionManager:21 - Connecting to null nodes
+2018-09-17 10:32:33 [main] WARN  URLConfigurationSource:122 - No URLs will be polled as dynamic configuration sources.
+2018-09-17 10:32:33 [main] INFO  URLConfigurationSource:123 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-09-17 10:32:33 [main] INFO  DynamicPropertyFactory:271 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@23986957
+2018-09-17 10:32:33 [main] INFO  ArchaiusConnectionPoolConfiguration:227 - Dyno configuration: CompressionStrategy = NONE
+2018-09-17 10:32:33 [main] WARN  DynoJedisClient:3560 - DynoJedisClient for app=[null] is configured for local rack affinity but cannot determine the local rack! DISABLING rack affinity for this instance. To make the client aware of the local rack either use ConnectionPoolConfigurationImpl.setLocalRack() when constructing the client instance or ensure EC2_AVAILABILTY_ZONE is set as an environment variable, e.g. run with -DEC2_AVAILABILITY_ZONE=us-east-1c
+2018-09-17 10:32:33 [main] INFO  DynoJedisClient:3519 - Starting connection pool for app null
+2018-09-17 10:32:33 [pool-4-thread-1] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]
+2018-09-17 10:32:33 [pool-4-thread-2] INFO  ConnectionPoolImpl:173 - Adding host connection pool for host: Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 10:32:33 [pool-4-thread-1] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:32:33 [pool-4-thread-2] INFO  HostConnectionPoolImpl:162 - Priming connection pool for host:Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up], with conns:3
+2018-09-17 10:32:34 [pool-4-thread-2] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=54.149.234.202, ipAddress=null, port=8102, rack: us-west-2c, datacenter: us-west-2, status: Up]
+2018-09-17 10:32:34 [pool-4-thread-1] INFO  ConnectionPoolImpl:177 - Successfully primed 3 of 3 to Host [hostname=34.220.28.55, ipAddress=null, port=8102, rack: us-west-2b, datacenter: us-west-2, status: Up]

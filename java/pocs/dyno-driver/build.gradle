@@ -1,0 +1,21 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+apply plugin: 'application'
+
+mainClassName = "Main"
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.apache.commons',    name: 'commons-lang3',  version: '3.8'
+    compile group: 'com.netflix.dyno',      name: 'dyno-jedis',     version: '1.5.8-rc.4'
+    compile group: 'com.google.code.gson',  name: 'gson',           version: '2.8.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-1.2-api', version: '2.11.1'
+}
