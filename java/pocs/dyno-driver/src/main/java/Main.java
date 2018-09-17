@@ -20,8 +20,6 @@ public class Main {
 			return;
 		}
 
-		System.out.print(nodes.toString());
-
 		DynoJedisClient dynoClient = new DynoConnectionManager().connect(clusterName, nodes);
 
 		String testContent = StringUtils.repeat('*', 100000000);
@@ -30,6 +28,7 @@ public class Main {
 		logger.info("Starting the test");
 
 		while (true) {
+			Thread.sleep(sleepInterval);
 			UUID key = UUID.randomUUID();
 			dynoClient.set(key.toString(), testContent);
 

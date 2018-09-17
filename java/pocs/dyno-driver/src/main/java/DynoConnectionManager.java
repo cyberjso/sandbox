@@ -3,6 +3,7 @@ import com.netflix.config.ConfigurationManager;
 import com.netflix.dyno.connectionpool.Host;
 import com.netflix.dyno.connectionpool.HostSupplier;
 import com.netflix.dyno.connectionpool.TokenMapSupplier;
+import com.netflix.dyno.connectionpool.impl.RetryNTimes;
 import com.netflix.dyno.connectionpool.impl.lb.AbstractTokenMapSupplier;
 import com.netflix.dyno.contrib.ArchaiusConnectionPoolConfiguration;
 import com.netflix.dyno.jedis.DynoJedisClient;
@@ -28,6 +29,7 @@ public class DynoConnectionManager {
 						new ArchaiusConnectionPoolConfiguration(clusterName)
 								.withTokenSupplier(buildTokenSupplier(nodes))
 								.setMaxConnsPerHost(1)
+								.setRetryPolicyFactory(new RetryNTimes.RetryFactory(1,true))
 				)
 				.withHostSupplier(buildHosSupplier(nodes))
 				.build();
@@ -57,7 +59,7 @@ public class DynoConnectionManager {
 	private static HostSupplier buildHosSupplier(List<Map<String, String>> nodes ) {
 		return () -> nodes
 				.stream()
-				.map(node -> new Host(node.get("ip"), 8102, node.get("rack"), Host.Status.Up))
+				.map(node -> new Host(node.get("ip"), node.get("ip"), 8102, node.get("rack"),node.get("rack"), Host.Status.Up))
 				.collect(Collectors.toList());
 	}
 
