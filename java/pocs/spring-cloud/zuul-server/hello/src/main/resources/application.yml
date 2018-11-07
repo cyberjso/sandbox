@@ -1,0 +1,5 @@
+ zuul:
+  routes:
+    myservice:
+      path: /jackapi/myservice/**
+      url: http://localhost:8080/api/myservice

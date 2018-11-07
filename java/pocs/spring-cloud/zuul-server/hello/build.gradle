@@ -1,0 +1,17 @@
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName="io.sandbox.spring.cloud.zuul.hello.App"
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.springframework.cloud:spring-cloud-starter-zuul:1.3.5.RELEASE"
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
+
+}
