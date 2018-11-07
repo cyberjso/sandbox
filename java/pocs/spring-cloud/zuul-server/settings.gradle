@@ -17,4 +17,5 @@ include 'services:webservice'
 
 rootProject.name = 'zuul-server'
 include 'hello'
+include 'oauth2-validation'
 
