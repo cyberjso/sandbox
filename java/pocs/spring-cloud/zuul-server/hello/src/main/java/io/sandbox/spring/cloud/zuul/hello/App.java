@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @ComponentScan("io.sandbox.spring.cloud.zuul.hello")
 @EnableZuulProxy
 @RestController
+
 public class App {
 
 	public static void main(String[] args) {
